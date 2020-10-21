@@ -1,7 +1,8 @@
 import React from 'react';
 import 'fontsource-roboto';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../../assets/logo.svg';
+
+import './style.css';
 
 function App() {
   return (
