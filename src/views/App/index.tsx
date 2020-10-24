@@ -1,27 +1,23 @@
 import React from 'react';
 import 'fontsource-roboto';
-import logo from '../../assets/logo.svg';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Navbar from '../../components/Navbar';
+import green from '@material-ui/core/colors/green';
 
-import './style.css';
+const theme = createMuiTheme({
+  palette: {
+    primary: green,
+    secondary: {
+      main: '#5e35b1',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Navbar />
+    </ThemeProvider>
   );
 }
 
