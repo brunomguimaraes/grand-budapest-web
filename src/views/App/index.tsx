@@ -6,6 +6,7 @@ import green from '@material-ui/core/colors/green';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { Container, Divider, Drawer, Grid, IconButton, makeStyles, Paper } from '@material-ui/core';
 import clsx from 'clsx';
+import Bookings from '../../components/Bookings';
 
 const theme = createMuiTheme({
   palette: {
@@ -118,22 +119,17 @@ function App() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+            {/* <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                {/* <Chart /> */}
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                {/* <Deposits /> */}
               </Paper>
-            </Grid>
-            {/* Recent Orders */}
+            </Grid> */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                {/* <Orders /> */}
+                <Bookings />
               </Paper>
             </Grid>
           </Grid>
