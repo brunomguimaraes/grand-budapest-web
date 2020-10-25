@@ -89,7 +89,6 @@ function App() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   
   return (
     <ThemeProvider theme={theme}>
