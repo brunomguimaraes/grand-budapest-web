@@ -4,9 +4,29 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Navbar from '../../components/Navbar';
 import green from '@material-ui/core/colors/green';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { Container, Divider, Drawer, Grid, IconButton, makeStyles, Paper } from '@material-ui/core';
+import {
+  Container,
+  Divider,
+  Drawer,
+  Grid,
+  IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  makeStyles,
+  Paper
+} from '@material-ui/core';
 import clsx from 'clsx';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
+import PeopleIcon from '@material-ui/icons/People';
+import HomeWorkOutlinedIcon from '@material-ui/icons/HomeWorkOutlined';
+import VpnKeyOutlinedIcon from '@material-ui/icons/VpnKeyOutlined';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import DateRangeIcon from '@material-ui/icons/DateRange';
 import Bookings from '../../components/Bookings';
+
 
 const theme = createMuiTheme({
   palette: {
@@ -40,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   drawerPaper: {
-    position: 'relative',
     whiteSpace: 'nowrap',
     width: drawerWidth,
     transition: theme.transitions.create('width', {
@@ -82,20 +101,20 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <Navbar
         handleDrawerOpen={handleDrawerOpen}
         drawerWidth={drawerWidth}
-        open={open}  
+        open={open}
       />
       <Drawer
         variant="permanent"
@@ -110,18 +129,97 @@ function App() {
           </IconButton>
         </div>
         <Divider />
-        {/* <List>{mainListItems}</List> */}
+        <List>
+          <ListItem button>
+            <ListItemIcon>
+              <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText primary="Dashboard" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <VpnKeyOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary="Reservas" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <DateRangeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Calendário " />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <PeopleIcon />
+            </ListItemIcon>
+            <ListItemText primary="Hóspedes" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <LocalOfferOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary="Cotações" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <HomeWorkOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary="Quartos" />
+          </ListItem>
+        </List>
         <Divider />
-        {/* <List>{secondaryListItems}</List> */}
+        <List>
+          <ListItem button>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Reservas Mês" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Reservas Trimestre" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Reservas Ano" />
+          </ListItem></List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-              </Paper>
-            </Grid>
+              <Card>
+                <CardHeader color="success">
+                  <ChartistGraph
+                    className="ct-chart"
+                    data={dailySalesChart.data}
+                    type="Line"
+                    options={dailySalesChart.options}
+                    listener={dailySalesChart.animation}
+                  />
+                </CardHeader>
+                <div>
+                  <h4 className={classes.cardTitle}>Daily Sales</h4>
+                  <p className={classes.cardCategory}>
+                    <span>
+                      <ArrowUpward className={classes.upArrowCardCategory} /> 55%
+                </span>{" "}
+                increase in today sales.
+              </p>
+                </div>
+                <div>
+                  <div className={classes.stats}>
+                    <AccessTime /> updated 4 minutes ago
+              </div>
+                </div>
+              </Card>
+            </Grid> */}
+            {/* 
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
               </Paper>
